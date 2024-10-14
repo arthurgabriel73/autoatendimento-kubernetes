@@ -127,3 +127,9 @@ variable "jwt_secret_key" {
   description = "JWT secret key"
   type        = string
 }
+
+variable "my_public_ip" { # Temporary for testing
+  description = "Your public IP"
+  type        = string
+  
+}

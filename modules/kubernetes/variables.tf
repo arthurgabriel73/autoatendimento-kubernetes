@@ -44,6 +44,11 @@ variable "db_password" {
   type        = string
 }
 
+variable "db_name" {
+  description = "Name of the database"
+  type        = string
+}
+
 variable "mercado_pago_access_token" {
   description = "Mercado Pago access token"
   type        = string

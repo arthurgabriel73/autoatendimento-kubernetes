@@ -9,6 +9,8 @@ resource "kubernetes_secret_v1" "app_secret" {
     NOTIFICATION_URL              = base64encode(var.notification_url)
     DB_USERNAME                   = base64encode(var.db_username)
     DB_PASSWORD                   = base64encode(var.db_password)
+    DB_NAME                       = base64encode(var.db_name)
+    DATASOURCE_URL                = base64encode(var.datasource_url)
     MERCADO_PAGO_ACCESS_TOKEN     = base64encode(var.mercado_pago_access_token)
     MERCADO_PAGO_QR_CODE_URL      = base64encode(var.mercado_pago_qr_code_url)
     MERCADO_PAGO_PEDIDO_URL       = base64encode(var.mercado_pago_pedido_url)

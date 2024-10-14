@@ -8,6 +8,7 @@ module "kubernetes" {
   notification_url              = var.notification_url
   db_username                   = var.database_username
   db_password                   = var.database_password
+  db_name                       = var.database_name
   mercado_pago_access_token     = var.mercado_pago_access_token
   mercado_pago_qr_code_url      = var.mercado_pago_qr_code_url
   mercado_pago_pedido_url       = var.mercado_pago_pedido_url
@@ -28,6 +29,7 @@ module "eks" {
   project_name = var.project_name
   region       = var.region
   tags         = var.tags
+  my_public_ip = var.my_public_ip
 }
 
 module "database" {
