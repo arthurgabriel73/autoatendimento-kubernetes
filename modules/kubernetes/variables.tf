@@ -108,3 +108,13 @@ variable "jwt_secret_key" {
   description = "JWT secret key"
   type        = string
 }
+
+variable "mail_host" {
+  description = "Host for the email"
+  type        = string
+}
+
+variable "mail_port" {
+  description = "Port for the email"
+  type        = string
+}

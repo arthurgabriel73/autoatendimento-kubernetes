@@ -3,12 +3,12 @@ module "kubernetes" {
   image_username                = var.image_username
   image_name                    = var.image_name
   image_version                 = var.image_version
-  datasource_url                = module.database.database_endpoint
   app_name                      = var.app_name
   notification_url              = var.notification_url
-  db_username                   = var.database_username
-  db_password                   = var.database_password
-  db_name                       = var.database_name
+  datasource_url                = module.database.database_endpoint
+  db_name                       = var.db_name
+  db_username                   = var.db_username
+  db_password                   = var.db_password
   mercado_pago_access_token     = var.mercado_pago_access_token
   mercado_pago_qr_code_url      = var.mercado_pago_qr_code_url
   mercado_pago_pedido_url       = var.mercado_pago_pedido_url
@@ -17,6 +17,8 @@ module "kubernetes" {
   mercado_pago_loja_url         = var.mercado_pago_loja_url
   mercado_pago_caixa_id_externo = var.mercado_pago_caixa_id_externo
   mercado_pago_loja_id_externo  = var.mercado_pago_loja_id_externo
+  mail_host                     = var.mail_host
+  mail_port                     = var.mail_port
   mail_username                 = var.mail_username
   mail_password                 = var.mail_password
   email_from                    = var.email_from

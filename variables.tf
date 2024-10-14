@@ -18,17 +18,17 @@ variable "tags" {
   description = "A map of tags to add to all AWS resources"
 }
 
-variable "database_name" {
+variable "db_name" {
   type        = string
   description = "Name of the database"
 }
 
-variable "database_username" {
+variable "db_username" {
   type        = string
   description = "Username for the database"
 }
 
-variable "database_password" {
+variable "db_password" {
   type        = string
   description = "Password for the database"
 }
@@ -116,5 +116,20 @@ variable "email_from" {
 
 variable "jwt_secret_key" {
   description = "JWT secret key"
+  type        = string
+}
+
+variable "datasource_url" {
+  description = "Datasource URL"
+  type        = string
+}
+
+variable "mail_host" {
+  description = "Mail host"
+  type        = string
+}
+
+variable "mail_port" {
+  description = "Mail port"
   type        = string
 }
