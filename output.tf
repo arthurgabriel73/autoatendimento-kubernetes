@@ -1,5 +1,5 @@
 output "app_service_load_balancer_ip" {
-  value       = module.kubernetes.app_service_load_balancer_ip
+  value       = module.kubernetes.app_service_load_balancer
   description = "The external IP of the service"
 }
 
