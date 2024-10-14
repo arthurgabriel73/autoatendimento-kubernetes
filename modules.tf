@@ -39,7 +39,6 @@ module "database" {
   tags              = var.tags
   vpc_id            = module.eks.eks_vpc_id
   eks_sg_id         = module.eks.eks_sg_id
-  lambda_sg_id      = var.lambda_sg_id
   database_name     = var.database_name
   database_username = var.database_username
   database_password = var.database_password

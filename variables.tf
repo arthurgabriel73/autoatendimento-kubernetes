@@ -127,8 +127,3 @@ variable "jwt_secret_key" {
   description = "JWT secret key"
   type        = string
 }
-
-variable "lambda_sg_id" {
-  description = "Security group ID for the Lambda function"
-  type        = string
-}
