@@ -128,8 +128,7 @@ variable "jwt_secret_key" {
   type        = string
 }
 
-variable "my_public_ip" { # Temporary for testing
-  description = "Your public IP"
+variable "lambda_sg_id" {
+  description = "Security group ID for the Lambda function"
   type        = string
-  
 }

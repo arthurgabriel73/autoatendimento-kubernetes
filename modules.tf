@@ -29,7 +29,6 @@ module "eks" {
   project_name = var.project_name
   region       = var.region
   tags         = var.tags
-  my_public_ip = var.my_public_ip
 }
 
 module "database" {
@@ -39,7 +38,8 @@ module "database" {
   region            = var.region
   tags              = var.tags
   vpc_id            = module.eks.eks_vpc_id
-  sg_id             = module.eks.eks_sg_id
+  eks_sg_id         = module.eks.eks_sg_id
+  lambda_sg_id      = var.lambda_sg_id
   database_name     = var.database_name
   database_username = var.database_username
   database_password = var.database_password
