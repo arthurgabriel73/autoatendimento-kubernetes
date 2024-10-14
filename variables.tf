@@ -58,15 +58,6 @@ variable "notification_url" {
   type        = string
 }
 
-variable "db_username" {
-  description = "Username for the database"
-  type        = string
-}
-
-variable "db_password" {
-  description = "Password for the database"
-  type        = string
-}
 
 variable "mercado_pago_access_token" {
   description = "Mercado Pago access token"
