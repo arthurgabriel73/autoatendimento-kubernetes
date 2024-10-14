@@ -1,6 +1,7 @@
 resource "kubernetes_secret_v1" "app_secret" {
   metadata {
     name = "${var.app_name}-secret"
+    namespace = kubernetes_namespace.app_namespace.metadata[0].name
   }
 
   data = {
