@@ -9,7 +9,7 @@ resource "kubernetes_service_v1" "app_service" {
       app = "${var.app_name}-app"
     }
 
-    session_affinity = "ClientIP" # ClientIP or None, I am not sure
+    session_affinity = "None"
 
     port {
       port        = 8080
