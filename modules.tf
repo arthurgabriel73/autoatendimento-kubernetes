@@ -5,7 +5,7 @@ module "kubernetes" {
   image_version                 = var.image_version
   app_name                      = var.app_name
   notification_url              = var.notification_url
-  datasource_url                = module.database.database_endpoint
+  datasource_url                = split(":", "${module.database.database_endpoint}")[0]
   db_name                       = var.db_name
   db_username                   = var.db_username
   db_password                   = var.db_password
