@@ -6,7 +6,7 @@ resource "kubernetes_secret_v1" "app_secret" {
 
   data = {
     APP_NAME                      = var.app_name
-    NOTIFICATION_URL              = var.notification_url
+    NOTIFICATION_URL              = "http://${kubernetes_service_v1.app_service.status[0].load_balancer[0].ingress[0].hostname}:${kubernetes_service_v1.app_service.spec[0].port[0].target_port}"
     DATASOURCE_URL                = var.datasource_url
     DB_NAME                       = var.db_name
     DB_USERNAME                   = var.db_username
@@ -26,4 +26,6 @@ resource "kubernetes_secret_v1" "app_secret" {
     EMAIL_FROM                    = var.email_from
     JWT_SECRET_KEY                = var.jwt_secret_key
   }
+
+  depends_on = [ kubernetes_service_v1.app_service ]
 }
