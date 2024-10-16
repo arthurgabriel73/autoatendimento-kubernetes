@@ -14,6 +14,8 @@ backend "s3" {
 ```bash
 $ terraform apply --auto-approve
 ```
+## INFRAESTRUTURA
+![alt text](image.png)
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
