@@ -27,5 +27,5 @@ resource "kubernetes_secret_v1" "app_secret" {
     JWT_SECRET_KEY                = var.jwt_secret_key
   }
 
-  depends_on = [ kubernetes_service_v1.app_service ]
+  depends_on = [kubernetes_service_v1.app_service]
 }
