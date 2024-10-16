@@ -26,7 +26,7 @@ module "kubernetes" {
 }
 
 module "eks" {
-  source       = "git@github.com:arthurgabriel73/autoatendimento-infra.git?ref=main"
+  source       = "github.com/arthurgabriel73/autoatendimento-eks"
   cidr_block   = var.cidr_block
   project_name = var.project_name
   region       = var.region
@@ -34,7 +34,7 @@ module "eks" {
 }
 
 module "database" {
-  source            = "git@github.com:arthurgabriel73/autoatendimento-database.git?ref=main"
+  source            = "github.com/arthurgabriel73/autoatendimento-database"
   cidr_block        = var.cidr_block
   project_name      = var.project_name
   region            = var.region
