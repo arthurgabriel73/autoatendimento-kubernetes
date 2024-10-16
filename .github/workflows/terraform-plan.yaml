@@ -1,0 +1,50 @@
+name: Terraform Plan
+on: push
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+  TF_VAR_project_name: ${{ secrets.PROJECT_NAME }}
+  TF_VAR_region: ${{ secrets.REGION }}
+  TF_VAR_tags: ${{ secrets.TAGS }}
+  TF_VAR_cidr_block: ${{ secrets.CIDR_BLOCK }}
+  TF_VAR_image_username: ${{ secrets.IMAGE_USERNAME }}
+  TF_VAR_image_name: ${{ secrets.IMAGE_NAME }}
+  TF_VAR_image_version: ${{ secrets.IMAGE_VERSION }}
+  TF_VAR_app_name: ${{ secrets.APP_NAME }}
+  TF_VAR_notification_url: ${{ secrets.NOTIFICATION_URL }}
+  TF_VAR_datasource_url: ${{ secrets.DATASOURCE_URL }}
+  TF_VAR_db_name: ${{ secrets.DB_NAME }}
+  TF_VAR_db_username: ${{ secrets.DB_USERNAME }}
+  TF_VAR_db_password: ${{ secrets.DB_PASSWORD }}
+  TF_VAR_mercado_pago_access_token: ${{ secrets.MERCADO_PAGO_ACCESS_TOKEN }}
+  TF_VAR_mercado_pago_qr_code_url: ${{ secrets.MERCADO_PAGO_QR_CODE_URL }}
+  TF_VAR_mercado_pago_pedido_url: ${{ secrets.MERCADO_PAGO_PEDIDO_URL }}
+  TF_VAR_mercado_pago_vendedor_id: ${{ secrets.MERCADO_PAGO_VENDEDOR_ID }}
+  TF_VAR_mercado_pago_caixa_url: ${{ secrets.MERCADO_PAGO_CAIXA_URL }}
+  TF_VAR_mercado_pago_loja_url: ${{ secrets.MERCADO_PAGO_LOJA_URL }}
+  TF_VAR_mercado_pago_caixa_id_externo: ${{ secrets.MERCADO_PAGO_CAIXA_ID_EXTERNO }}
+  TF_VAR_mercado_pago_loja_id_externo: ${{ secrets.MERCADO_PAGO_LOJA_ID_EXTERNO }}
+  TF_VAR_mail_host: ${{ secrets.MAIL_HOST }}
+  TF_VAR_mail_port: ${{ secrets.MAIL_PORT }}
+  TF_VAR_mail_username: ${{ secrets.MAIL_USERNAME }}
+  TF_VAR_mail_password: ${{ secrets.MAIL_PASSWORD }}
+  TF_VAR_email_from: ${{ secrets.EMAIL_FROM }}
+  TF_VAR_jwt_secret_key: ${{ secrets.JWT_SECRET_KEY }}
+
+jobs:
+  terraform_plan:
+    name: Terraform Plan
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Terraform Plan
+      run: |
+        terraform init
+        terraform validate
+        terraform fmt -recursive -check
+        terraform plan
